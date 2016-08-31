@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>User Details</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+</head>
+<body>
+  <nav class="teal lighten-2">
+   <div class="nav-wrapper">
+     <a href="#" class="brand-logo">&nbsp Smart Energy Meter</a>
+     <ul id="nav-mobile" class="right hide-on-med-and-down">
+       <li><a href="/logout">Logout</a></li>
+
+     </ul>
+   </div>
+ </nav>
+<div class="container">
+  <div class="row">
+
+  <h1>Details of {{request.user}}</h1>
+
+  <table class="bordered highlight responsive-table">
+    <thead>
+      <tr>
+    <th data-field="id">Time Stamp</th>
+    <th data-field="name">Reading</th>
+    <th data-field="price">Cost</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for detail in userdetails %}
+
+              <tr>
+                <td>{{detail.timestamp}}</td>
+                <td>{{detail.reading}}</td>
+                <td>${{detail.cost}}</td>
+              </tr>
+              </tbody>
+  </table>
+
+  {% endfor %}
+</div>
+</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+</body>
+</html>
